@@ -23,8 +23,8 @@
 # True
 
 # Встроенные данные
-temp1 = 18
-temp2 = 22
+temp1:int = int(18)
+temp2:int = int(22)
 
 # Ваш код здесь
 print(temp1 == temp2)
