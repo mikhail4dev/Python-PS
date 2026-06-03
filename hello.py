@@ -1,5 +1,3 @@
+age:int = int(input("Введите возраст"))
 
-num = 5 #Объявление переменной num и присваение ей значения 5
-
-
-print(num)
+print(age > 18 and age < 50)
