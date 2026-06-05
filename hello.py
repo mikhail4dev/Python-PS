@@ -1,16 +1,8 @@
-floor:int = int(input("Выберите этаж: "))
+word = str(input("Введите слово: ")).lower()
 
-match floor:
-    case -1:
-        print("Подвал: здесь находится склад")
-    case 1:
-        print("Холл и ресепшен")
-    case _ if 2 <= floor <= 9:
-        if floor % 2 == 0:
-            print(f"Офиосный этаж: {floor}")
-        else:
-            print(f"Жилой этаж: {floor}")
-    case 10:
-        print("Технической этаж - вход запрещен")
-    case _:
-        print(f"Такого этажа не существует: {floor}")
+word_invert = word[::-1].lower()
+
+if word == word_invert:
+    print(f"Слово {word} является палиндромом")
+else:
+    print(f"Слово {word} НЕ является палиндромом")
