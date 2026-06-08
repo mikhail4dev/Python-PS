@@ -1,8 +1,5 @@
-word = str(input("Введите слово: ")).lower()
-
-word_invert = word[::-1].lower()
-
-if word == word_invert:
-    print(f"Слово {word} является палиндромом")
-else:
-    print(f"Слово {word} НЕ является палиндромом")
+l = [1, 2]
+first_elm, *rest, last_elm = l
+sum_ex = first_elm + last_elm
+sum_res = sum(rest)
+print(sum_ex, sum_res)
