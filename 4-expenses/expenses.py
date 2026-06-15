@@ -1,5 +1,4 @@
-# cost = input("Введите стоимость покупки в формате <руб> руб <коп> коп: ").strip()
-cost = '159 руб 10.10 коп'
+cost = input("Введите стоимость покупки в формате <руб> руб <коп> коп: ").strip().lower()
 
 if 'руб' not in cost:
     print("Некорректный формат суммы")
@@ -10,9 +9,13 @@ rubles = list_cost[0]
 penny = "0"
 
 if 2 < len(list_cost) <= 4:
+    if 'коп' not in cost:
+        print("Некорректный формат суммы")
+        exit()
     penny = list_cost[2]
 
-if not rubles.isdigit() and not penny.isdigit():
+
+if not rubles.isdigit() or not penny.isdigit():
     print((
         "Некорректный формат суммы\n"
         f"Значение в переменной rebles: {rubles}\n"
