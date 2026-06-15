@@ -1,25 +1,19 @@
-user_email = input("Введите ваш email: ")
+name, total = "Михаил", 3499.9
 
-if user_email.count("@") != 1:
-    print("Не верный email")
-    exit()
+separator = "-" * 30
 
-local, domain = user_email.split("@")
 
-if not local:
-    print("Не верный email")
-    exit()
+letter_var_1 = f"Здравствуйте, {name}!\n"  \
+    f"Ваш счёт к оплате: {total} {chr(8381)}\n" \
+    f"{separator}\n" \
+    "Прошу оплатить сегодня" \
 
-if "." not in domain:
-    print("Не верный email")
-    exit()
+letter_var_2 = (
+    f"Здравствуйте, {name}!\n"  
+    f"Ваш счёт к оплате: {total:.2f} {chr(8381)}\n" 
+    f"{separator}\n" 
+    "Прошу оплатить сегодня" 
+)
+    
 
-if len(domain.split(".")[-1]) < 2:
-    print("Не верный email")
-    exit()
-
-if len(domain.split(".")[0]) == 0:
-    print("Не верный email")
-    exit()
-
-print("Верный email")
+print(letter_var_2)
