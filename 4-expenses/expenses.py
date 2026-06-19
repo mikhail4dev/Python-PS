@@ -1,11 +1,29 @@
-wastes = [500, 400, 1500, 5000, 211, 369, 901]
+cost = input("Введите стоимость покупки в формате <руб> руб <коп> коп: ").strip().lower()
 
-sum_wastes = sum(wastes)
-average_value_wastes = sum_wastes / len(wastes)
-max_wastes = max(wastes)
-min_wastes = min(wastes)
+if 'руб' not in cost:
+    print("Некорректный формат суммы")
+    exit()
 
-tuple_wastes = (min_wastes, max_wastes, sum_wastes)
+list_cost = cost.split(" ")
+rubles = list_cost[0]
+penny = "0"
 
-print(tuple_wastes)
+if 2 < len(list_cost) <= 4:
+    if 'коп' not in cost:
+        print("Некорректный формат суммы")
+        exit()
+    penny = list_cost[2]
 
+
+if not rubles.isdigit() or not penny.isdigit():
+    print((
+        "Некорректный формат суммы\n"
+        f"Значение в переменной rebles: {rubles}\n"
+        f"Значение в переменной penny: {penny}"
+        ))
+    exit()
+
+final_cost = float(rubles + "." + penny)
+rub_symbol = chr(8381)
+
+print(f"{final_cost:.2f} {rub_symbol}")
