@@ -1,16 +1,23 @@
-# Угадай число
+# Если есть слово СПАМ, останавливаем проверку
+# Если сообщение больше 20 символов - пропускаем его
+# Вывести в результате был ли спам
 
-import random
+messages = [
+    "Привет!",
+    "Купи дешёвые курсы!!!",
+    "Как дела?",
+    "СПАМ реклама!!!",
+    "Пойдём играть в футбол?",
+]
 
-secret_number = random.choice(range(1,11))
-guess = 0
+for message in messages:
 
-print("Угадай число от 1 до 10")
-
-while guess != secret_number:
-    guess = int(input("Введите число: "))
-    if guess < secret_number:
-        print("Загаданное число больше")
-    elif guess > secret_number:
-        print("Загаданное число меньше")
-print("Вы угаладали")
+    if len(message) > 20:
+        print(f"Сообщение: {message} - не может быть спамом т.к. содержит больше 20 символов")
+        continue
+    
+    if "СПАМ" in message:
+        print(f"Обнаружено спам-сообщение: {message}")
+        break
+else:
+    print("Проверка закончена, спам-сообщений не обнаружено")
