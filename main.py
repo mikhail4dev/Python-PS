@@ -1,16 +1,21 @@
-# Угадай число
+# Калькулятор
 
-import random
+def calculate(a:float, b:float, operation:str):
+    
+    match operation:
+        case "+":
+            return a + b
+        case "-":
+            return a - b
+        case "*":
+            return a * b
+        case "/":
+            return a / b if b != 0 else print("Нельзя разделить на 0")
+        case _:
+            return "Не известная операция"
 
-secret_number = random.choice(range(1,11))
-guess = 0
+a_num:float = float((input("Введите первое число: ")))
+b_num:float = float((input("Введите второе число число: ")))
+operator:str = str((input("Укажите операцию (+, -, *, /): ")))
 
-print("Угадай число от 1 до 10")
-
-while guess != secret_number:
-    guess = int(input("Введите число: "))
-    if guess < secret_number:
-        print("Загаданное число больше")
-    elif guess > secret_number:
-        print("Загаданное число меньше")
-print("Вы угаладали")
+print(calculate(a_num, b_num, operator))
