@@ -1,6 +1,8 @@
 # Калькулятор
 
-def calculate(a:float, b:float, operation:str):
+from typing import Literal
+
+def calculate(a:float, b:float, operation: Literal["+", "-", "*", "/"]):
     
     match operation:
         case "+":
@@ -19,3 +21,21 @@ b_num:float = float((input("Введите второе число число: "
 operator:str = str((input("Укажите операцию (+, -, *, /): ")))
 
 print(calculate(a_num, b_num, operator))
+
+#Star arguments
+
+def avg(*args: int):
+    return sum(args) / len(args)
+
+def prints_data(name: str, *data: str):
+    print(name, data)
+
+prints_data("Михаил", "fd", "gdfg", "dsfsd")
+
+#Значение по умолчанию
+
+def exp(num: float, e:float = 2, mul:float = 1) -> float:
+    return mul * num ** e
+
+print(exp(e=3, num=2))
+print(exp(2, mul=3))
